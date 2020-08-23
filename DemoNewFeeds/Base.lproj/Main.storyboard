@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -298,12 +299,12 @@
                                                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbO-Nt-SEF">
                                                                     <rect key="frame" x="0.0" y="0.0" width="101.5" height="40"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                    <state key="normal" title=" Like" image="like contour">
-                                                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <state key="normal" title=" Like" image="like">
+                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </state>
                                                                 </button>
                                                             </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" name="likeColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="AbO-Nt-SEF" secondAttribute="trailing" id="0my-iT-LKp"/>
                                                                 <constraint firstItem="AbO-Nt-SEF" firstAttribute="leading" secondItem="P2k-Op-nRU" secondAttribute="leading" id="BP3-MI-jLw"/>
@@ -417,6 +418,8 @@
                                         <color key="backgroundColor" red="0.97255557780000002" green="0.97253733870000003" blue="0.97254973649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="avatarImage" destination="loM-2f-5oj" id="pI1-V3-IK1"/>
+                                            <outlet property="likeButton" destination="AbO-Nt-SEF" id="xyH-bu-oGP"/>
+                                            <outlet property="likeView" destination="P2k-Op-nRU" id="2RS-eM-4es"/>
                                             <outlet property="nameLabel" destination="lRL-at-5bB" id="ZhQ-YE-wcW"/>
                                             <outlet property="postImage" destination="jBu-Aw-Klg" id="raK-By-G82"/>
                                             <outlet property="postTextLabel" destination="rj6-e8-dex" id="ulw-Lf-xBO"/>
@@ -819,6 +822,8 @@
                                         <color key="backgroundColor" red="0.97255557780000002" green="0.97253733870000003" blue="0.97254973649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="avatarImage" destination="zAs-Nq-pXR" id="eVc-IB-vGJ"/>
+                                            <outlet property="likeButton" destination="kyg-fn-vdh" id="Quf-BH-sPr"/>
+                                            <outlet property="likeView" destination="jdE-HO-ZSp" id="wyS-xD-PUH"/>
                                             <outlet property="nameLabel" destination="I4f-JQ-ehY" id="M5S-zF-9pK"/>
                                             <outlet property="postImage" destination="mWJ-wB-5O9" id="IfD-1Z-DBF"/>
                                             <outlet property="postTextLabel" destination="KsV-nN-ey8" id="eT2-df-F8u"/>
@@ -856,7 +861,7 @@
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook-messenger-vector-logo-0" translatesAutoresizingMaskIntoConstraints="NO" id="rKb-a3-5Ft">
                                 <rect key="frame" x="15" y="563" width="40" height="40"/>
-                                <color key="backgroundColor" red="0.34013861420000002" green="0.47284632920000003" blue="0.97259825470000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.31528586149999999" green="0.45961785319999998" blue="0.99220830199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="2wD-5c-6k2"/>
                                     <constraint firstAttribute="width" constant="40" id="PZt-b8-HVK"/>
@@ -1298,6 +1303,8 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="avatarImage" destination="lmb-HU-0ar" id="nge-k5-oNN"/>
+                                            <outlet property="likeButton" destination="VQZ-Bu-dxZ" id="gz1-7V-ZdZ"/>
+                                            <outlet property="likeView" destination="yVi-LG-fA3" id="9mF-jH-1id"/>
                                             <outlet property="nameLabel" destination="O9d-Xe-Rw2" id="cLS-XJ-N06"/>
                                             <outlet property="postImage" destination="rNa-1Y-oV7" id="jxP-ie-ipq"/>
                                             <outlet property="postTextLabel" destination="FXq-C5-fv5" id="Va2-Fb-ii0"/>
@@ -1648,10 +1655,14 @@
         <image name="facebook-messenger-vector-logo-0" width="204" height="200"/>
         <image name="haha" width="500" height="500"/>
         <image name="home contours" width="58" height="59"/>
+        <image name="like" width="20" height="18"/>
         <image name="like contour" width="20" height="18"/>
         <image name="photo_2x" width="112" height="110"/>
         <image name="sad" width="500" height="500"/>
         <image name="search_2x" width="100" height="100"/>
         <image name="share" width="17" height="15"/>
+        <namedColor name="likeColor">
+            <color red="0.26768431069999998" green="0.39683681729999998" blue="0.69807183740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>

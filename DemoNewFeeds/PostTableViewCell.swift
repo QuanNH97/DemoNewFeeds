@@ -15,6 +15,8 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var reaction: UILabel!
     @IBOutlet weak var postedTimeLabel: UILabel!
+    @IBOutlet weak var likeView: UIView!
+    @IBOutlet weak var likeButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -46,9 +48,15 @@ class PostTableViewCell: UITableViewCell {
         } else {
             self.postedTimeLabel.text = "\(post.postedTime / 60)h ago"
         }
-//        if post.like == 1 {
-//            self.likeButton.backgroundColor = .blue
-//        } 
+        if post.like == 0 {
+            self.likeView.backgroundColor = .white
+            self.likeButton.setTitleColor(.black, for: .normal)
+            self.likeButton.setImage(UIImage(named: "like contour.png"), for: .normal)
+        } else {
+            self.likeView.backgroundColor = UIColor(named: "likeColor")
+            self.likeButton.setTitleColor(.white, for: .normal)
+            self.likeButton.setImage(UIImage(named: "like.png"), for: .normal)
+        }
     }
     
 }

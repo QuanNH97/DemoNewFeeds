@@ -20,6 +20,8 @@ class DetailPostTableViewCell: UITableViewCell {
     @IBOutlet weak var cmtAuthor: UILabel!
     @IBOutlet weak var cmtContent: UILabel!
     @IBOutlet weak var cmtTime: UILabel!
+    @IBOutlet weak var likeView: UIView!
+    @IBOutlet weak var likeButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,6 +53,15 @@ class DetailPostTableViewCell: UITableViewCell {
             self.postedTimeLabel.text = "\(post.postedTime)m ago"
         } else {
             self.postedTimeLabel.text = "\(post.postedTime / 60)h ago"
+        }
+        if post.like == 0 {
+            self.likeView.backgroundColor = .white
+            self.likeButton.setTitleColor(.black, for: .normal)
+            self.likeButton.setImage(UIImage(named: "like contour.png"), for: .normal)
+        } else {
+            self.likeView.backgroundColor = UIColor(named: "likeColor")
+            self.likeButton.setTitleColor(.white, for: .normal)
+            self.likeButton.setImage(UIImage(named: "like.png"), for: .normal)
         }
     }
     
