@@ -11,7 +11,7 @@ import UIKit
 let numberOfDisplayedComment = 2
 
 class DetailViewController: UIViewController {
-    var post = Post(author: User(name: ""), contentImage: "", postedTime: 0, comment: [], reactCount: 0, shareCount: 0)
+    var post = Post(author: User(name: ""), contentImage: "", contentText: "", postedTime: 0, comment: [], reactCount: 0, shareCount: 0)
     var num = numberOfDisplayedComment + 2
     @IBOutlet weak var detailPost: UITableView!
     override func viewDidLoad() {

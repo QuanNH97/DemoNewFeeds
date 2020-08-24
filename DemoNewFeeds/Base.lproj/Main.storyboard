@@ -897,6 +897,38 @@
             </objects>
             <point key="canvasLocation" x="2016.8" y="116.49175412293854"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="X1M-nG-6Vn">
+            <objects>
+                <viewController id="Qdz-oo-9i9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9IE-jf-SqC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="lWa-90-beV"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="video" id="p5F-sW-15b"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ikI-mn-rx1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2017" y="887"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="xd6-Wq-TjT">
+            <objects>
+                <viewController id="Ad1-f0-Uh2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6I0-yt-gwi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="vrx-p2-TKo"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="firend" id="GfY-dN-RzH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lyO-It-GSb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2790" y="887"/>
+        </scene>
         <!--Detail View Controller-->
         <scene sceneID="KZJ-nJ-2iH">
             <objects>
@@ -1610,6 +1642,38 @@
             </objects>
             <point key="canvasLocation" x="2730.4000000000001" y="114.69265367316342"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="JhY-2O-4E9">
+            <objects>
+                <viewController id="TIF-sn-qmU" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M88-Sa-UPj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="PM4-mO-I4b"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="bell" id="gqb-8y-GA3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TK2-PA-HSH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2017" y="-584"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="zYn-Ua-ZwO">
+            <objects>
+                <viewController id="01Q-r3-6WU" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="57a-Rs-Ur0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="yeX-O9-xVA"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="menu" id="AHr-fK-z8m"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fEe-gN-wzj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2730" y="-584"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="OdQ-J6-H1u">
             <objects>
@@ -1622,6 +1686,10 @@
                     </tabBar>
                     <connections>
                         <segue destination="NYj-sQ-yS5" kind="relationship" relationship="viewControllers" id="hNh-23-K0w"/>
+                        <segue destination="Qdz-oo-9i9" kind="relationship" relationship="viewControllers" id="zUg-9E-K3T"/>
+                        <segue destination="TIF-sn-qmU" kind="relationship" relationship="viewControllers" id="WCP-Lm-PVm"/>
+                        <segue destination="Ad1-f0-Uh2" kind="relationship" relationship="viewControllers" id="0L1-k1-K3C"/>
+                        <segue destination="01Q-r3-6WU" kind="relationship" relationship="viewControllers" id="5D9-tv-V1H"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vQT-vZ-TEP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1651,18 +1719,22 @@
     <resources>
         <image name="3 points vertical" width="500" height="143"/>
         <image name="angry" width="500" height="500"/>
+        <image name="bell" width="54" height="56"/>
         <image name="comment" width="18" height="18"/>
         <image name="facebook-messenger-vector-logo-0" width="204" height="200"/>
+        <image name="firend" width="57" height="54"/>
         <image name="haha" width="500" height="500"/>
         <image name="home contours" width="58" height="59"/>
         <image name="like" width="20" height="18"/>
         <image name="like contour" width="20" height="18"/>
+        <image name="menu" width="58" height="54"/>
         <image name="photo_2x" width="112" height="110"/>
         <image name="sad" width="500" height="500"/>
         <image name="search_2x" width="100" height="100"/>
         <image name="share" width="17" height="15"/>
+        <image name="video" width="66" height="60"/>
         <namedColor name="likeColor">
-            <color red="0.26768431069999998" green="0.39683681729999998" blue="0.69807183740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.26800000667572021" green="0.3970000147819519" blue="0.69800001382827759" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
