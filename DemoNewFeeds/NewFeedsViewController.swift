@@ -23,6 +23,7 @@ class NewFeedsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        newFeedsTableView.reloadData()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -53,12 +54,14 @@ extension NewFeedsViewController: UITableViewDataSource {
         let post = data[indexPath.row]
         if indexPath.row == data.count - 1 {
             let cell = newFeedsTableView.dequeueReusableCell(withIdentifier: "lastPost", for: indexPath) as! PostTableViewCell
-            cell.insertData(post: post)
+            cell.post = post
+            cell.insertData()
             cell.selectionStyle = .none
             return cell
         } else {
             let cell = newFeedsTableView.dequeueReusableCell(withIdentifier: "post", for: indexPath) as! PostTableViewCell
-            cell.insertData(post: post)
+            cell.post = post
+            cell.insertData()
             cell.selectionStyle = .none
             return cell
         }

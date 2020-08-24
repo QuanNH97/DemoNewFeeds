@@ -302,6 +302,9 @@
                                                                     <state key="normal" title=" Like" image="like">
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="likeAction:" destination="dXl-ny-wgB" eventType="touchUpInside" id="A0L-cZ-47b"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" name="likeColor"/>
@@ -706,6 +709,9 @@
                                                                     <state key="normal" title=" Like" image="like contour">
                                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="likeAction:" destination="G4v-Ia-Whl" eventType="touchUpInside" id="kow-aB-hKh"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1220,6 +1226,9 @@
                                                                     <state key="normal" title=" Like" image="like contour">
                                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="likeAction:" destination="bIg-gP-J8f" eventType="touchUpInside" id="rQR-OO-bnM"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

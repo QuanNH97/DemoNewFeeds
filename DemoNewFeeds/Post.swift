@@ -15,7 +15,7 @@ let paramArr = [fakeParam1, fakeParam2, fakeParam3]
 let timeMinute = [15, 30, 45, 60, 120, 180, 240]
 let numberOfShare = [0, 1, 2, 3]
 let numberOfReact = [5, 7, 11, 13, 17, 20]
-let contentImages = ["", "post1.png", "post2.png"]
+let contentImages = ["", "post1.png"]
 
 func randomComment() -> Comment {
     guard

@@ -48,7 +48,8 @@ extension DetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = detailPost.dequeueReusableCell(withIdentifier: "detailPost", for: indexPath) as! DetailPostTableViewCell
-            cell.insertData(post: post)
+            cell.post = post
+            cell.insertData()
             return cell
         } else if indexPath.row == num - 1 && num != post.comment.count + 1{
             let cell = detailPost.dequeueReusableCell(withIdentifier: "moreComment", for: indexPath) as! DetailPostTableViewCell

@@ -9,6 +9,7 @@
 import UIKit
 
 class DetailPostTableViewCell: UITableViewCell {
+    var post = Post(author: User(name: ""), contentImage: "", contentText: "", postedTime: 0, comment: [], reactCount: 0, shareCount: 0)
 
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -22,6 +23,17 @@ class DetailPostTableViewCell: UITableViewCell {
     @IBOutlet weak var cmtTime: UILabel!
     @IBOutlet weak var likeView: UIView!
     @IBOutlet weak var likeButton: UIButton!
+    @IBAction func likeAction(_ sender: Any) {
+        let parenTable = self.superview as! UITableView
+        if self.post.like == 1 {
+            self.post.like = 0
+            self.post.reactCount -= 1
+        } else {
+            self.post.like = 1
+            self.post.reactCount += 1
+        }
+        parenTable.reloadData()
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,7 +46,8 @@ class DetailPostTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func insertData(post: Post) {
+    func insertData() {
+        let post = self.post
         self.avatarImage.image = UIImage(named: post.author.avatar)
         self.nameLabel.text = post.author.name
         self.postTextLabel.text = post.contentText

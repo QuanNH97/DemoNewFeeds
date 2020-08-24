@@ -9,6 +9,7 @@
 import UIKit
 
 class PostTableViewCell: UITableViewCell {
+    var post = Post(author: User(name: ""), contentImage: "", contentText: "", postedTime: 0, comment: [], reactCount: 0, shareCount: 0)
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var postTextLabel: UILabel!
@@ -17,6 +18,17 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var postedTimeLabel: UILabel!
     @IBOutlet weak var likeView: UIView!
     @IBOutlet weak var likeButton: UIButton!
+    @IBAction func likeAction(_ sender: Any) {
+        let parenTable = self.superview as! UITableView
+        if self.post.like == 1 {
+            self.post.like = 0
+            self.post.reactCount -= 1
+        } else {
+            self.post.like = 1
+            self.post.reactCount += 1
+        }
+        parenTable.reloadData()
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,7 +40,8 @@ class PostTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func insertData(post: Post) {
+    func insertData() {
+        let post = self.post
         self.avatarImage.image = UIImage(named: post.author.avatar)
         self.nameLabel.text = post.author.name
         self.postTextLabel.text = post.contentText
@@ -36,6 +49,7 @@ class PostTableViewCell: UITableViewCell {
             self.reaction.textColor = .white
             self.postImage.image = UIImage(named: post.contentImage)
         } else {
+            self.postImage.image = nil
             self.reaction.textColor = .lightGray
         }
         if post.shareCount == 0 {
