@@ -23,6 +23,8 @@ class DetailPostTableViewCell: UITableViewCell {
     @IBOutlet weak var cmtTime: UILabel!
     @IBOutlet weak var likeView: UIView!
     @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var likeImage: UIImageView!
+    @IBOutlet weak var likeLabel: UILabel!
     @IBAction func likeAction(_ sender: Any) {
         let parenTable = self.superview as! UITableView
         if self.post.like == 1 {
@@ -46,47 +48,25 @@ class DetailPostTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func insertData() {
-        let post = self.post
+    func insertData(post: Post) {
+        self.post = post
         self.avatarImage.image = UIImage(named: post.author.avatar)
         self.nameLabel.text = post.author.name
         self.postTextLabel.text = post.contentText
-        if post.contentImage != "" {
-            self.postImage.image = UIImage(named: post.contentImage)
-            self.reaction.textColor = .white
-        } else {
-            self.reaction.textColor = .lightGray
-        }
-        if post.shareCount == 0 {
-            self.reaction.text = "\(post.reactCount) - \(post.comment.count) comment"
-        } else {
-            self.reaction.text = "\(post.reactCount) - \(post.comment.count) comment - \(post.shareCount) share"
-        }
-        if post.postedTime / 60 == 0 {
-            self.postedTimeLabel.text = "\(post.postedTime)m ago"
-        } else {
-            self.postedTimeLabel.text = "\(post.postedTime / 60)h ago"
-        }
-        if post.like == 0 {
-            self.likeView.backgroundColor = .white
-            self.likeButton.setTitleColor(.black, for: .normal)
-            self.likeButton.setImage(UIImage(named: "like contour.png"), for: .normal)
-        } else {
-            self.likeView.backgroundColor = UIColor(named: "likeColor")
-            self.likeButton.setTitleColor(.white, for: .normal)
-            self.likeButton.setImage(UIImage(named: "like.png"), for: .normal)
-        }
+        self.postImage.image = post.contentImage == "" ? nil : UIImage(named: post.contentImage)
+        self.reaction.textColor = post.contentImage == "" ? .lightGray : .white
+        self.reaction.text = post.shareCount == 0 ? "\(post.reactCount) - \(post.comment.count) comment" : "\(post.reactCount) - \(post.comment.count) comment - \(post.shareCount) share"
+        self.postedTimeLabel.text = post.postedTime / 60 == 0 ? "\(post.postedTime)m ago" : "\(post.postedTime / 60)h ago"
+        self.likeView.backgroundColor = post.like == 0 ? .white : UIColor(named: "likeColor")
+        self.likeLabel.textColor = post.like == 0 ? .gray : .white
+        self.likeImage.image = post.like == 0 ? UIImage(named: "like contour.png") : UIImage(named: "like.png")
     }
     
     func insertComment(comment: Comment) {
-        self.cmtImage.image = UIImage(named: comment.cmtAuthor.avatar) 
-        self.cmtAuthor.text = comment.cmtAuthor.name
-        self.cmtContent.text = comment.cmtContent
-        if comment.cmtPostedTime / 60 == 0 {
-            self.cmtTime.text = "\(comment.cmtPostedTime) min"
-        } else {
-            self.cmtTime.text = "\(comment.cmtPostedTime / 60)h"
-        }
+        self.cmtImage.image = UIImage(named: comment.author.avatar)
+        self.cmtAuthor.text = comment.author.name
+        self.cmtContent.text = comment.content
+        self.cmtTime.text = comment.postedTime / 60 == 0 ? "\(comment.postedTime) min" : "\(comment.postedTime / 60)h"
     }
 
 }

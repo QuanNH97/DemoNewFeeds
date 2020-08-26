@@ -11,7 +11,7 @@ import UIKit
 class NewFeedsViewController: UIViewController {
     
     @IBOutlet weak var newFeedsTableView: UITableView!
-    var data = initData()
+    var data = randomPost()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,14 +54,12 @@ extension NewFeedsViewController: UITableViewDataSource {
         let post = data[indexPath.row]
         if indexPath.row == data.count - 1 {
             let cell = newFeedsTableView.dequeueReusableCell(withIdentifier: "lastPost", for: indexPath) as! PostTableViewCell
-            cell.post = post
-            cell.insertData()
+            cell.insertData(post: post)
             cell.selectionStyle = .none
             return cell
         } else {
             let cell = newFeedsTableView.dequeueReusableCell(withIdentifier: "post", for: indexPath) as! PostTableViewCell
-            cell.post = post
-            cell.insertData()
+            cell.insertData(post: post)
             cell.selectionStyle = .none
             return cell
         }

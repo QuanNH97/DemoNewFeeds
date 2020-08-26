@@ -23,6 +23,7 @@ class DetailViewController: UIViewController {
         title = post.author.name
         self.navigationController?.navigationBar.topItem?.title = "New Feeds"
         self.navigationController?.navigationBar.tintColor = .gray
+        detailPost.separatorStyle = .none
     }
 
 }
@@ -48,8 +49,7 @@ extension DetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = detailPost.dequeueReusableCell(withIdentifier: "detailPost", for: indexPath) as! DetailPostTableViewCell
-            cell.post = post
-            cell.insertData()
+            cell.insertData(post: post)
             return cell
         } else if indexPath.row == num - 1 && num != post.comment.count + 1{
             let cell = detailPost.dequeueReusableCell(withIdentifier: "moreComment", for: indexPath) as! DetailPostTableViewCell

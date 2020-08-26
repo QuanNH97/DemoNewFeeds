@@ -13,6 +13,9 @@
 		840EDC9724EF66F3004A731C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 840EDC9624EF66F3004A731C /* Assets.xcassets */; };
 		840EDC9A24EF66F3004A731C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840EDC9824EF66F3004A731C /* LaunchScreen.storyboard */; };
 		840EDCAA24EFC180004A731C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840EDCA924EFC180004A731C /* Post.swift */; };
+		84194DC224F511AE00AF7D5E /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84194DC124F511AE00AF7D5E /* Comment.swift */; };
+		84194DC424F511EA00AF7D5E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84194DC324F511EA00AF7D5E /* User.swift */; };
+		84194DC624F5124D00AF7D5E /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84194DC524F5124C00AF7D5E /* DataHelper.swift */; };
 		8433C0F924F0C5CD00D4315E /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433C0F824F0C5CD00D4315E /* PostTableViewCell.swift */; };
 		8436E1A224F22226000FE1CA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436E1A124F22226000FE1CA /* DetailViewController.swift */; };
 		8436E1A424F2389F000FE1CA /* DetailPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436E1A324F2389F000FE1CA /* DetailPostTableViewCell.swift */; };
@@ -27,6 +30,9 @@
 		840EDC9924EF66F3004A731C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		840EDC9B24EF66F3004A731C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		840EDCA924EFC180004A731C /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		84194DC124F511AE00AF7D5E /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		84194DC324F511EA00AF7D5E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		84194DC524F5124C00AF7D5E /* DataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
 		8433C0F824F0C5CD00D4315E /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		8436E1A124F22226000FE1CA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8436E1A324F2389F000FE1CA /* DetailPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostTableViewCell.swift; sourceTree = "<group>"; };
@@ -68,6 +74,9 @@
 				8436E1A124F22226000FE1CA /* DetailViewController.swift */,
 				8436E1A324F2389F000FE1CA /* DetailPostTableViewCell.swift */,
 				840EDCA924EFC180004A731C /* Post.swift */,
+				84194DC124F511AE00AF7D5E /* Comment.swift */,
+				84194DC324F511EA00AF7D5E /* User.swift */,
+				84194DC524F5124C00AF7D5E /* DataHelper.swift */,
 				840EDC9324EF66F0004A731C /* Main.storyboard */,
 				840EDC9624EF66F3004A731C /* Assets.xcassets */,
 				840EDC9824EF66F3004A731C /* LaunchScreen.storyboard */,
@@ -147,9 +156,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84194DC624F5124D00AF7D5E /* DataHelper.swift in Sources */,
 				8433C0F924F0C5CD00D4315E /* PostTableViewCell.swift in Sources */,
 				840EDC9224EF66F0004A731C /* NewFeedsViewController.swift in Sources */,
 				840EDCAA24EFC180004A731C /* Post.swift in Sources */,
+				84194DC224F511AE00AF7D5E /* Comment.swift in Sources */,
+				84194DC424F511EA00AF7D5E /* User.swift in Sources */,
 				840EDC8E24EF66F0004A731C /* AppDelegate.swift in Sources */,
 				8436E1A224F22226000FE1CA /* DetailViewController.swift in Sources */,
 				8436E1A424F2389F000FE1CA /* DetailPostTableViewCell.swift in Sources */,
