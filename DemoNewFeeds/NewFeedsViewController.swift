@@ -19,6 +19,7 @@ class NewFeedsViewController: UIViewController {
         newFeedsTableView.delegate = self
         newFeedsTableView.dataSource = self
         newFeedsTableView.separatorStyle = .none
+        navigationItem.title = "New Feeds"
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

@@ -21,7 +21,6 @@ class DetailViewController: UIViewController {
         detailPost.dataSource = self
         detailPost.separatorStyle = .none
         title = post.author.name
-        self.navigationController?.navigationBar.topItem?.title = "New Feeds"
         self.navigationController?.navigationBar.tintColor = .gray
         detailPost.separatorStyle = .none
     }
