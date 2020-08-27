@@ -17,15 +17,17 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        detailPostTableView.delegate = self
-        detailPostTableView.dataSource = self
-        configTable()
+        configTableView()
         registerCell()
     }
-    func configTable() {
+    func configTableView() {
+        detailPostTableView.delegate = self
+        detailPostTableView.dataSource = self
         detailPostTableView.separatorStyle = .none
         title = post.author.name
         self.navigationController?.navigationBar.tintColor = .gray
+        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+        self.detailPostTableView.contentInset = insets
     }
     func registerCell() {
         let postNib = UINib.init(nibName: "CommentTableViewCell", bundle: nil)
@@ -34,8 +36,6 @@ class DetailViewController: UIViewController {
         detailPostTableView.register(commentNib, forCellReuseIdentifier: "PostTableViewCell")
         let moreCommentNib = UINib.init(nibName: "MoreCommentTableViewCell", bundle: nil)
         detailPostTableView.register(moreCommentNib, forCellReuseIdentifier: "MoreCommentTableViewCell")
-        let lastCommentNib = UINib.init(nibName: "LastCommentTableViewCell", bundle: nil)
-        detailPostTableView.register(lastCommentNib, forCellReuseIdentifier: "LastCommentTableViewCell")
     }
     
 }
@@ -61,20 +61,15 @@ extension DetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = detailPostTableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as! PostTableViewCell
-            cell.insertData(post: post)
+            cell.configCell(post: post)
             return cell
         } else if indexPath.row == num - 1 && num != post.comment.count + 1{
             let cell = detailPostTableView.dequeueReusableCell(withIdentifier: "MoreCommentTableViewCell", for: indexPath) as! MoreCommentTableViewCell
             return cell
-        } else if indexPath.row == num - 1 && num == post.comment.count + 1 {
-            let cell = detailPostTableView.dequeueReusableCell(withIdentifier: "LastCommentTableViewCell", for: indexPath) as! LastCommentTableViewCell
-            let comment = post.comment[indexPath.row - 1]
-            cell.insertComment(comment: comment)
-            return cell
         } else {
             let cell = detailPostTableView.dequeueReusableCell(withIdentifier: "CommentTableViewCell", for: indexPath) as! CommentTableViewCell
             let comment = post.comment[indexPath.row - 1]
-            cell.insertComment(comment: comment)
+            cell.configCell(comment: comment)
             return cell
         }
     }

@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="470" height="755"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWb-gc-38A">
-                                <rect key="frame" x="10" y="0.0" width="450" height="42"/>
+                                <rect key="frame" x="10" y="10" width="450" height="42"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bJA-QP-oXJ">
                                         <rect key="frame" x="0.0" y="1" width="40" height="40"/>
@@ -104,17 +104,17 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fO-CL-Rya">
-                                <rect key="frame" x="10" y="52" width="450" height="638"/>
+                                <rect key="frame" x="10" y="62" width="450" height="628"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="325" translatesAutoresizingMaskIntoConstraints="NO" id="kJS-bn-fXg">
-                                        <rect key="frame" x="15" y="15" width="420" height="413"/>
+                                        <rect key="frame" x="15" y="15" width="420" height="403"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.27896310219999998" green="0.27896310219999998" blue="0.27896310219999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XxD-oZ-ciS">
-                                        <rect key="frame" x="0.0" y="438" width="450" height="200"/>
+                                        <rect key="frame" x="0.0" y="428" width="450" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="Xfw-s7-wnq"/>
                                         </constraints>
@@ -131,7 +131,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i4z-lu-TGp">
-                                        <rect key="frame" x="25" y="608" width="400" height="20"/>
+                                        <rect key="frame" x="25" y="598" width="400" height="20"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iys-j0-5DM">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -432,9 +432,9 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.97619122270000003" green="0.97633117439999995" blue="0.97616058589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="background"/>
                         <constraints>
-                            <constraint firstItem="ZWb-gc-38A" firstAttribute="top" secondItem="NQw-JK-qIN" secondAttribute="top" id="0bM-z1-PbY"/>
+                            <constraint firstItem="ZWb-gc-38A" firstAttribute="top" secondItem="NQw-JK-qIN" secondAttribute="top" constant="10" id="0bM-z1-PbY"/>
                             <constraint firstAttribute="trailing" secondItem="8fO-CL-Rya" secondAttribute="trailing" constant="10" id="1CH-Da-bGC"/>
                             <constraint firstItem="8fO-CL-Rya" firstAttribute="leading" secondItem="NQw-JK-qIN" secondAttribute="leading" constant="10" id="3B2-yx-RxO"/>
                             <constraint firstItem="8fO-CL-Rya" firstAttribute="top" secondItem="ZWb-gc-38A" secondAttribute="bottom" constant="10" id="NBD-Cl-M1n"/>
@@ -456,14 +456,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="avatarImage" destination="bJA-QP-oXJ" id="u1r-qW-Hkx"/>
-                <outlet property="bottomConstraint" destination="41d-DE-5Z8" id="pFo-2j-zef"/>
+                <outlet property="avatarImageView" destination="bJA-QP-oXJ" id="u1r-qW-Hkx"/>
                 <outlet property="likeButton" destination="bcV-Da-ulE" id="SBA-Ky-zsw"/>
-                <outlet property="likeImage" destination="oeB-Bj-wQJ" id="6u7-iX-Rdj"/>
+                <outlet property="likeImageView" destination="oeB-Bj-wQJ" id="6u7-iX-Rdj"/>
                 <outlet property="likeLabel" destination="4Et-tY-bJ0" id="jon-Fh-4R6"/>
                 <outlet property="likeView" destination="O51-GH-4Pu" id="Fxg-vD-Vqu"/>
                 <outlet property="nameLabel" destination="bkV-01-cma" id="Gtl-pu-WBh"/>
-                <outlet property="postImage" destination="XxD-oZ-ciS" id="Gkb-un-YjX"/>
+                <outlet property="postImageView" destination="XxD-oZ-ciS" id="Gkb-un-YjX"/>
                 <outlet property="postTextLabel" destination="kJS-bn-fXg" id="ndC-zP-kDZ"/>
                 <outlet property="postedTimeLabel" destination="Qbl-SL-FNZ" id="mWU-8F-Crm"/>
                 <outlet property="reactionLabel" destination="9vw-O8-kYr" id="oig-9c-6qG"/>
@@ -479,6 +478,9 @@
         <image name="like" width="20" height="18"/>
         <image name="sad" width="12" height="12"/>
         <image name="share" width="17" height="15"/>
+        <namedColor name="background">
+            <color red="0.96299999952316284" green="0.96299999952316284" blue="0.96299999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="likeColor">
             <color red="0.26800000667572021" green="0.3970000147819519" blue="0.69800001382827759" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

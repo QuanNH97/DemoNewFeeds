@@ -9,11 +9,10 @@
 import UIKit
 
 class CommentTableViewCell: UITableViewCell {
-    @IBOutlet weak var cmtImage: UIImageView!
-    @IBOutlet weak var cmtAuthorLabel: UILabel!
-    @IBOutlet weak var cmtContentLabel: UILabel!
-    @IBOutlet weak var cmtTimeLabel: UILabel!
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var commentImage: UIImageView!
+    @IBOutlet weak var commentAuthorLabel: UILabel!
+    @IBOutlet weak var commentContentLabel: UILabel!
+    @IBOutlet weak var commentTimeLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,11 +24,12 @@ class CommentTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func insertComment(comment: Comment) {
-        cmtImage.image = UIImage(named: comment.author.avatar)
-        cmtAuthorLabel.text = comment.author.name
-        cmtContentLabel.text = comment.content
-        cmtTimeLabel.text = comment.postedTime / 60 == 0 ? "\(comment.postedTime) min" : "\(comment.postedTime / 60)h"
+    func configCell(comment: Comment) {
+        selectionStyle = .none
+        commentImage.image = UIImage(named: comment.author.avatar)
+        commentAuthorLabel.text = comment.author.name
+        commentContentLabel.text = comment.content
+        commentTimeLabel.text = comment.postedTime / 60 == 0 ? "\(comment.postedTime) min" : "\(comment.postedTime / 60)h"
     }
 
 }

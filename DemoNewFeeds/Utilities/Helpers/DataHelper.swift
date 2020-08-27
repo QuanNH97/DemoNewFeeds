@@ -20,28 +20,24 @@ let contentImages = ["", "post1.png", "post2.png"]
 
 class DataHelper {
     var posts: [Post] = []
+    
     public func randomComment() -> [Comment] {
-        var comments: [Comment] = []
-        for _ in 1...15 {
+        return (0..<15).map { _ -> Comment? in
             guard
                 let author = users.randomElement(),
                 let content = paramArr.randomElement(),
                 let time = timeMinute.randomElement()
-            else {
-                return []
+                else {
+                    return nil
             }
-            let comment = Comment(author: User(name: author), postedTime: time, content: content)
-            comments.append(comment)
+            return Comment(author: User(name: author), postedTime: time, content: content)
         }
-        comments.sort {
-            $0.postedTime > $1.postedTime
-        }
-        return comments
+        .compactMap { $0 }
+        .sorted { $0.postedTime > $1.postedTime }
     }
-
+    
     public func randomPost() -> [Post] {
-        var posts: [Post] = []
-        for _ in 1...15 {
+        return (0..<15).map { _ -> Post? in
             guard
                 let author = users.randomElement(),
                 let time = timeMinute.randomElement(),
@@ -49,20 +45,18 @@ class DataHelper {
                 let image = contentImages.randomElement(),
                 let react = numberOfReact.randomElement(),
                 let share = numberOfShare.randomElement()
-            else {
-                return []
+                else {
+                    return nil
             }
-            let post = Post(author: User(name: author), contentImage: image, contentText: content, postedTime: time, comment: randomComment(), reactCount: react, shareCount: share)
-            posts.append(post)
+            return Post(author: User(name: author), contentImage: image, contentText: content, postedTime: time, comment: randomComment(), reactCount: react, shareCount: share)
         }
-        posts.sort {
-            $0.postedTime < $1.postedTime
-        }
-        return posts
+        .compactMap{ $0 }
+        .sorted{ $0.postedTime < $1.postedTime }
+        
     }
     
     init() {
         posts = randomPost()
     }
-
+    
 }

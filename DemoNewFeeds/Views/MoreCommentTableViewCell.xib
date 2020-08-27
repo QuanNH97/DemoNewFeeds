@@ -44,7 +44,7 @@
                 <color key="backgroundColor" name="background"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="WVV-7X-QpG" secondAttribute="trailing" constant="10" id="5Vc-3P-uCO"/>
-                    <constraint firstAttribute="bottom" secondItem="WVV-7X-QpG" secondAttribute="bottom" constant="60" id="FBT-Gw-mrA"/>
+                    <constraint firstAttribute="bottom" secondItem="WVV-7X-QpG" secondAttribute="bottom" constant="10" id="FBT-Gw-mrA"/>
                     <constraint firstItem="WVV-7X-QpG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="hHc-Re-f2w"/>
                     <constraint firstItem="WVV-7X-QpG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="rOp-Lr-7it"/>
                 </constraints>

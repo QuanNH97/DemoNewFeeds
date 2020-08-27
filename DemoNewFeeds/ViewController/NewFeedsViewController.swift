@@ -16,9 +16,8 @@ class NewFeedsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        newFeedsTableView.delegate = self
-        newFeedsTableView.dataSource = self
-        configTable()
+        setupNavigationTitle()
+        configTableView()
         registerCell()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -30,25 +29,30 @@ class NewFeedsViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    func configTable() {
+    func configTableView() {
+        newFeedsTableView.delegate = self
+        newFeedsTableView.dataSource = self
         newFeedsTableView.separatorStyle = .none
-        navigationItem.title = "New Feeds"
+        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+        self.newFeedsTableView.contentInset = insets
     }
     func registerCell() {
         let nib = UINib.init(nibName: "PostTableViewCell", bundle: nil)
         newFeedsTableView.register(nib, forCellReuseIdentifier: "PostTableViewCell")
     }
-    
+    func setupNavigationTitle() {
+        navigationItem.title = "New Feeds"
+    }
 }
 
 extension NewFeedsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let
-            detailVC = storyboard?.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController
+            detailViewController = storyboard?.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController
             else { return }
         let post = data[indexPath.row]
-        detailVC.post = post
-        navigationController?.pushViewController(detailVC, animated: true)
+        detailViewController.post = post
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
 
@@ -66,8 +70,7 @@ extension NewFeedsViewController: UITableViewDataSource {
         guard let
             cell = newFeedsTableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell
             else { return UITableViewCell() }
-        cell.insertData(post: post)
-        cell.configCell(row: indexPath.row, dataCount: data.count)
+        cell.configCell(post: post)
         return cell
         
     }
