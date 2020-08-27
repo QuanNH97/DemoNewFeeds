@@ -10,10 +10,10 @@ import UIKit
 
 class CommentTableViewCell: UITableViewCell {
     @IBOutlet weak var cmtImage: UIImageView!
-    @IBOutlet weak var cmtAuthor: UILabel!
-    @IBOutlet weak var cmtContent: UILabel!
-    @IBOutlet weak var cmtTime: UILabel!
-
+    @IBOutlet weak var cmtAuthorLabel: UILabel!
+    @IBOutlet weak var cmtContentLabel: UILabel!
+    @IBOutlet weak var cmtTimeLabel: UILabel!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,11 +26,10 @@ class CommentTableViewCell: UITableViewCell {
     }
     
     func insertComment(comment: Comment) {
-        self.cmtImage.image = UIImage(named: comment.author.avatar)
-        self.cmtAuthor.text = comment.author.name
-        self.cmtContent.text = comment.content
-        self.cmtTime.text = comment.postedTime / 60 == 0 ? "\(comment.postedTime) min" : "\(comment.postedTime / 60)h"
+        cmtImage.image = UIImage(named: comment.author.avatar)
+        cmtAuthorLabel.text = comment.author.name
+        cmtContentLabel.text = comment.content
+        cmtTimeLabel.text = comment.postedTime / 60 == 0 ? "\(comment.postedTime) min" : "\(comment.postedTime / 60)h"
     }
-
 
 }

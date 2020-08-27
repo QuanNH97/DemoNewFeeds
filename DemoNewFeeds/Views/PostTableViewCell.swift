@@ -14,24 +14,14 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var postTextLabel: UILabel!
     @IBOutlet weak var postImage: UIImageView!
-    @IBOutlet weak var reaction: UILabel!
+    @IBOutlet weak var reactionLabel: UILabel!
     @IBOutlet weak var postedTimeLabel: UILabel!
     @IBOutlet weak var likeView: UIView!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likeImage: UIImageView!
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    @IBAction func likeAction(_ sender: Any) {
-        let parenTable = self.superview as! UITableView
-        if self.post.like == 1 {
-            self.post.like = 0
-            self.post.reactCount -= 1
-        } else {
-            self.post.like = 1
-            self.post.reactCount += 1
-        }
-        parenTable.reloadData()
-    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -45,21 +35,33 @@ class PostTableViewCell: UITableViewCell {
     
     func insertData(post: Post) {
         self.post = post
-        self.avatarImage.image = UIImage(named: post.author.avatar)
-        self.nameLabel.text = post.author.name
-        self.postTextLabel.text = post.contentText
-        self.postImage.image = post.contentImage == "" ? nil : UIImage(named: post.contentImage)
-        self.reaction.textColor = post.contentImage == "" ? .lightGray : .white
-        self.reaction.text = post.shareCount == 0 ? "\(post.reactCount) - \(post.comment.count) comment" : "\(post.reactCount) - \(post.comment.count) comment - \(post.shareCount) share"
-        self.postedTimeLabel.text = post.postedTime / 60 == 0 ? "\(post.postedTime)m ago" : "\(post.postedTime / 60)h ago"
-        self.likeView.backgroundColor = post.like == 0 ? .white : UIColor(named: "likeColor")
-        self.likeLabel.textColor = post.like == 0 ? .gray : .white
-        self.likeImage.image = post.like == 0 ? UIImage(named: "like contour.png") : UIImage(named: "like.png")
+        avatarImage.image = UIImage(named: post.author.avatar)
+        nameLabel.text = post.author.name
+        postTextLabel.text = post.contentText
+        postImage.image = post.contentImage == "" ? nil : UIImage(named: post.contentImage)
+        reactionLabel.textColor = post.contentImage == "" ? .lightGray : .white
+        reactionLabel.text = post.reactionString()
+        postedTimeLabel.text = post.postedTime / 60 == 0 ? "\(post.postedTime)m ago" : "\(post.postedTime / 60)h ago"
+        likeView.backgroundColor = post.like == 0 ? .white : UIColor(named: "likeColor")
+        likeLabel.textColor = post.like == 0 ? .gray : .white
+        likeImage.image = post.like == 0 ? UIImage(named: "like contour.png") : UIImage(named: "like.png")
     }
     
     func configCell(row: Int, dataCount: Int) {
-        self.selectionStyle = .none
+        selectionStyle = .none
         bottomConstraint.constant = row == dataCount - 1 ? 105 : 55
     }
     
+    @IBAction func likeAction(_ sender: Any) {
+        guard let parenTable = superview as? UITableView
+            else { return }
+        if post.like == 1 {
+            post.like = 0
+            post.reactCount -= 1
+        } else {
+            post.like = 1
+            post.reactCount += 1
+        }
+        parenTable.reloadData()
+    }
 }

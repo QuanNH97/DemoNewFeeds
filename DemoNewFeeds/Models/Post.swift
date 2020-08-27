@@ -27,4 +27,22 @@ class Post {
         self.shareCount = shareCount
     }
     
+    func reactionString() -> String {
+        var arr: [String] = []
+        if reactCount != 0 {
+            let reactString = String(reactCount)
+            arr.append(reactString)
+        }
+        if comment.count != 0 {
+            let commentString = "\(comment.count) comment"
+            arr.append(commentString)
+        }
+        if shareCount != 0 {
+            let shareString = "\(shareCount) share"
+            arr.append(shareString)
+        }
+        
+        return arr.joined(separator: " - ")
+    }
+    
 }

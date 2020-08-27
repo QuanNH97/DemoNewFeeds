@@ -65,10 +65,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="en1-MT-hxq">
-                                        <rect key="frame" x="420" y="5" width="30" height="32"/>
+                                        <rect key="frame" x="420" y="7" width="30" height="30"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3 points vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jhq-5u-M2n">
-                                                <rect key="frame" x="7" y="8.5" width="16" height="15"/>
+                                                <rect key="frame" x="7" y="8.5" width="16" height="13"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.86275100709999997" green="0.86273467540000004" blue="0.86274570230000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -96,7 +96,7 @@
                                     <constraint firstItem="QYs-Mh-Td5" firstAttribute="top" secondItem="bkV-01-cma" secondAttribute="bottom" constant="3" id="Q2j-om-Px8"/>
                                     <constraint firstItem="QYs-Mh-Td5" firstAttribute="leading" secondItem="bJA-QP-oXJ" secondAttribute="trailing" constant="10" id="W96-QL-0OK"/>
                                     <constraint firstItem="en1-MT-hxq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bkV-01-cma" secondAttribute="trailing" constant="8" symbolic="YES" id="hx9-Qt-Ewk"/>
-                                    <constraint firstItem="en1-MT-hxq" firstAttribute="top" secondItem="ZWb-gc-38A" secondAttribute="top" constant="5" id="sh5-hE-8Tq"/>
+                                    <constraint firstItem="en1-MT-hxq" firstAttribute="top" secondItem="ZWb-gc-38A" secondAttribute="top" constant="7" id="sh5-hE-8Tq"/>
                                     <constraint firstItem="bJA-QP-oXJ" firstAttribute="top" secondItem="ZWb-gc-38A" secondAttribute="top" constant="1" id="tRC-zY-pdy"/>
                                     <constraint firstItem="bkV-01-cma" firstAttribute="leading" secondItem="bJA-QP-oXJ" secondAttribute="trailing" constant="10" id="uQI-NH-F79"/>
                                     <constraint firstItem="bkV-01-cma" firstAttribute="top" secondItem="ZWb-gc-38A" secondAttribute="top" constant="1" id="vjc-mv-7dm"/>
@@ -466,7 +466,7 @@
                 <outlet property="postImage" destination="XxD-oZ-ciS" id="Gkb-un-YjX"/>
                 <outlet property="postTextLabel" destination="kJS-bn-fXg" id="ndC-zP-kDZ"/>
                 <outlet property="postedTimeLabel" destination="Qbl-SL-FNZ" id="mWU-8F-Crm"/>
-                <outlet property="reaction" destination="9vw-O8-kYr" id="oig-9c-6qG"/>
+                <outlet property="reactionLabel" destination="9vw-O8-kYr" id="oig-9c-6qG"/>
             </connections>
             <point key="canvasLocation" x="240.57971014492756" y="-7.7008928571428568"/>
         </tableViewCell>

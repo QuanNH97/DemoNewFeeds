@@ -16,7 +16,6 @@ class NewFeedsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print(data.count)
         newFeedsTableView.delegate = self
         newFeedsTableView.dataSource = self
         configTable()
@@ -44,7 +43,9 @@ class NewFeedsViewController: UIViewController {
 
 extension NewFeedsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailVC = storyboard?.instantiateViewController(withIdentifier: "detailVC") as! DetailViewController
+        guard let
+            detailVC = storyboard?.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController
+            else { return }
         let post = data[indexPath.row]
         detailVC.post = post
         navigationController?.pushViewController(detailVC, animated: true)
@@ -62,7 +63,9 @@ extension NewFeedsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = data[indexPath.row]
-        let cell = newFeedsTableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as! PostTableViewCell
+        guard let
+            cell = newFeedsTableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell
+            else { return UITableViewCell() }
         cell.insertData(post: post)
         cell.configCell(row: indexPath.row, dataCount: data.count)
         return cell
