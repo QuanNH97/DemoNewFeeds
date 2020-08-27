@@ -11,15 +11,16 @@ import UIKit
 class NewFeedsViewController: UIViewController {
     
     @IBOutlet weak var newFeedsTableView: UITableView!
-    var data = randomPost()
+    private var data = DataHelper().randomPost()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print(data.count)
         newFeedsTableView.delegate = self
         newFeedsTableView.dataSource = self
-        newFeedsTableView.separatorStyle = .none
-        navigationItem.title = "New Feeds"
+        configTable()
+        registerCell()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -29,6 +30,14 @@ class NewFeedsViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    func configTable() {
+        newFeedsTableView.separatorStyle = .none
+        navigationItem.title = "New Feeds"
+    }
+    func registerCell() {
+        let nib = UINib.init(nibName: "PostTableViewCell", bundle: nil)
+        newFeedsTableView.register(nib, forCellReuseIdentifier: "PostTableViewCell")
     }
     
 }
@@ -53,17 +62,11 @@ extension NewFeedsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = data[indexPath.row]
-        if indexPath.row == data.count - 1 {
-            let cell = newFeedsTableView.dequeueReusableCell(withIdentifier: "lastPost", for: indexPath) as! PostTableViewCell
-            cell.insertData(post: post)
-            cell.selectionStyle = .none
-            return cell
-        } else {
-            let cell = newFeedsTableView.dequeueReusableCell(withIdentifier: "post", for: indexPath) as! PostTableViewCell
-            cell.insertData(post: post)
-            cell.selectionStyle = .none
-            return cell
-        }
+        let cell = newFeedsTableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as! PostTableViewCell
+        cell.insertData(post: post)
+        cell.configCell(row: indexPath.row, dataCount: data.count)
+        return cell
+        
     }
-
+    
 }

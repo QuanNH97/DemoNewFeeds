@@ -23,6 +23,8 @@ class DetailViewController: UIViewController {
         title = post.author.name
         self.navigationController?.navigationBar.tintColor = .gray
         detailPost.separatorStyle = .none
+        let nib = UINib.init(nibName: "PostTableViewCell", bundle: nil)
+        detailPost.register(nib, forCellReuseIdentifier: "PostTableViewCell")
     }
 
 }
@@ -47,19 +49,19 @@ extension DetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = detailPost.dequeueReusableCell(withIdentifier: "detailPost", for: indexPath) as! DetailPostTableViewCell
+            let cell = detailPost.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as! PostTableViewCell
             cell.insertData(post: post)
             return cell
         } else if indexPath.row == num - 1 && num != post.comment.count + 1{
-            let cell = detailPost.dequeueReusableCell(withIdentifier: "moreComment", for: indexPath) as! DetailPostTableViewCell
+            let cell = detailPost.dequeueReusableCell(withIdentifier: "moreComment", for: indexPath) as! MoreCommentTableViewCell
             return cell
         } else if indexPath.row == num - 1 && num == post.comment.count + 1 {
-            let cell = detailPost.dequeueReusableCell(withIdentifier: "lastComment", for: indexPath) as! DetailPostTableViewCell
+            let cell = detailPost.dequeueReusableCell(withIdentifier: "lastComment", for: indexPath) as! CommentTableViewCell
             let comment = post.comment[indexPath.row - 1]
             cell.insertComment(comment: comment)
             return cell
         } else {
-            let cell = detailPost.dequeueReusableCell(withIdentifier: "commentList", for: indexPath) as! DetailPostTableViewCell
+            let cell = detailPost.dequeueReusableCell(withIdentifier: "commentList", for: indexPath) as! CommentTableViewCell
             let comment = post.comment[indexPath.row - 1]
             cell.insertComment(comment: comment)
             return cell
