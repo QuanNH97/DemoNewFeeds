@@ -104,7 +104,7 @@
             <connections>
                 <outlet property="commentAuthorLabel" destination="8CR-fB-jF9" id="7tL-9a-iZv"/>
                 <outlet property="commentContentLabel" destination="bLi-fg-iEK" id="1ok-rn-Ycp"/>
-                <outlet property="commentImage" destination="yhE-hz-bvn" id="beI-uK-2ru"/>
+                <outlet property="commentImageView" destination="yhE-hz-bvn" id="beI-uK-2ru"/>
                 <outlet property="commentTimeLabel" destination="v0m-1R-0sE" id="Tpd-Lc-Knq"/>
             </connections>
             <point key="canvasLocation" x="-436" y="39"/>

@@ -9,7 +9,7 @@
 import UIKit
 
 class CommentTableViewCell: UITableViewCell {
-    @IBOutlet weak var commentImage: UIImageView!
+    @IBOutlet weak var commentImageView: UIImageView!
     @IBOutlet weak var commentAuthorLabel: UILabel!
     @IBOutlet weak var commentContentLabel: UILabel!
     @IBOutlet weak var commentTimeLabel: UILabel!
@@ -26,7 +26,7 @@ class CommentTableViewCell: UITableViewCell {
     
     func configCell(comment: Comment) {
         selectionStyle = .none
-        commentImage.image = UIImage(named: comment.author.avatar)
+        commentImageView.image = UIImage(named: comment.author.avatar)
         commentAuthorLabel.text = comment.author.name
         commentContentLabel.text = comment.content
         commentTimeLabel.text = comment.postedTime / 60 == 0 ? "\(comment.postedTime) min" : "\(comment.postedTime / 60)h"
