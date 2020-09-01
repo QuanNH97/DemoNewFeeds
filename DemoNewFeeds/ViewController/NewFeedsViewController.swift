@@ -11,14 +11,14 @@ import UIKit
 class NewFeedsViewController: UIViewController {
     
     @IBOutlet weak var newFeedsTableView: UITableView!
-    var data = initData()
+    private var data = DataHelper().randomPost()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        newFeedsTableView.delegate = self
-        newFeedsTableView.dataSource = self
-        newFeedsTableView.separatorStyle = .none
+        setupNavigationTitle()
+        configTableView()
+        registerCell()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -29,15 +29,30 @@ class NewFeedsViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    
+    func configTableView() {
+        newFeedsTableView.delegate = self
+        newFeedsTableView.dataSource = self
+        newFeedsTableView.separatorStyle = .none
+        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+        self.newFeedsTableView.contentInset = insets
+    }
+    func registerCell() {
+        let nib = UINib.init(nibName: "PostTableViewCell", bundle: nil)
+        newFeedsTableView.register(nib, forCellReuseIdentifier: "PostTableViewCell")
+    }
+    func setupNavigationTitle() {
+        navigationItem.title = "New Feeds"
+    }
 }
 
 extension NewFeedsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailVC = storyboard?.instantiateViewController(withIdentifier: "detailVC") as! DetailViewController
+        guard let
+            detailViewController = storyboard?.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController
+            else { return }
         let post = data[indexPath.row]
-        detailVC.post = post
-        navigationController?.pushViewController(detailVC, animated: true)
+        detailViewController.post = post
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
 
@@ -52,19 +67,12 @@ extension NewFeedsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = data[indexPath.row]
-        if indexPath.row == data.count - 1 {
-            let cell = newFeedsTableView.dequeueReusableCell(withIdentifier: "lastPost", for: indexPath) as! PostTableViewCell
-            cell.post = post
-            cell.insertData()
-            cell.selectionStyle = .none
-            return cell
-        } else {
-            let cell = newFeedsTableView.dequeueReusableCell(withIdentifier: "post", for: indexPath) as! PostTableViewCell
-            cell.post = post
-            cell.insertData()
-            cell.selectionStyle = .none
-            return cell
-        }
+        guard let
+            cell = newFeedsTableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell
+            else { return UITableViewCell() }
+        cell.configCell(post: post)
+        return cell
+        
     }
-
+    
 }

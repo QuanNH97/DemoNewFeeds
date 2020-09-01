@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "haha.png",
+      "filename" : "IMG_4484 Copy@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "IMG_4484 Copy@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "IMG_4484 Copy@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
